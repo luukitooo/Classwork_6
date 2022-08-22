@@ -36,7 +36,7 @@ class LogInFragment : BaseFragment<FragmentLogInBinding>(FragmentLogInBinding::i
             val handler = SessionHandler(requireActivity().application)
             handler.read(SessionKeys.SESSION_KEY)?.let {
                 if (it.isNotEmpty())
-                    LogInFragmentDirections.toHomeFragment(handler.read(SessionKeys.EMAIL)!!)
+                    findNavController().navigate(LogInFragmentDirections.toHomeFragment(handler.read(SessionKeys.EMAIL)!!))
             }
         }
     }
